@@ -1,0 +1,39 @@
+{% extends './parent/base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% block head %}
+
+{% endblock %}
+{% block title %}
+    داشبورد کاربری
+{% endblock %}
+<!-- LinkedInLogin_app/templates/home.html -->
+{% block content %}
+
+    <div class="container" style="text-align: center; padding-top: 10%;">
+        <h1>Sample Allauth App</h1>
+
+        <br/><br/>
+
+        {% if user.is_authenticated %}
+            <h3>Welcome {{ user.name }} !!!</h3>
+            <br/><br/>
+            <a href="{% url 'account_logout' %}" class="btn btn-danger">Logout</a>
+        {% else %}
+            <!-- LinkedIn button code starts here -->
+            <a href="{% provider_login_url 'linkedin' %}" class="btn btn-secondary">
+                <i class="fa fa-linkedin fa-fw"></i>
+                <span>Login with LinkedIn</span>
+            </a>
+            <a href="{% provider_login_url 'google' %}" class="btn btn-secondary">
+                <i class="fa-brands fa-google"></i>
+                <span>Login with google</span>
+
+            </a>
+            <a href="{%url 'user_login' %}" class="btn btn-secondary">
+            </a>
+            <!-- LinkedIn button code ends here -->
+        {% endif %}
+    </div>
+
+{% endblock content %}

@@ -1,7 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
+    <link type="text/css" href="{% static 'css/bootstrap-rtl.min.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/animate.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/hamburgers.min.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/select2.min.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/util.css' %}" rel="stylesheet" />
+    <link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %}</title>
     {% block head %}{% endblock %}
 

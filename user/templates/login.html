@@ -1,23 +1,17 @@
 {% extends 'parent/base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="fa">
+{% load socialaccount %}
 {% block title %} صفحه ورود به ناحیه کاربری{% endblock %}
 {% block head %}
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Styles -->
-    <link type="text/css" href="{% static 'css/bootstrap-rtl.min.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/animate.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/hamburgers.min.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/select2.min.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/util.css' %}" rel="stylesheet"/>
-    <link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet"/>
+{#    <link type="text/css" href="{% static 'css/bootstrap-rtl.min.css' %}" rel="stylesheet"/>#}
+{#    <link type="text/css" href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"/>#}
+{#    <link type="text/css" href="{% static 'css/animate.css' %}" rel="stylesheet"/>#}
+{#    <link type="text/css" href="{% static 'css/hamburgers.min.css' %}" rel="stylesheet"/>#}
+{#    <link type="text/css" href="{% static 'css/select2.min.css' %}" rel="stylesheet"/>#}
+{#    <link type="text/css" href="{% static 'css/util.css' %}" rel="stylesheet"/>#}
+{#    <link type="text/css" href="{% static 'css/style.css' %}" rel="stylesheet"/>#}
 {% endblock %}
 {% block content %}
     <div class="limiter">
@@ -73,6 +67,15 @@
                         <a class="txt2" href="{% url "sellerRegister" %}">
                             <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
                             هنوز ثبت نام نکرده اید ؟
+                        </a>
+                        <a href="{% provider_login_url 'linkedin' %}" class="btn btn-secondary">
+                            <i class="fa fa-linkedin fa-fw"></i>
+                            <span>با لینکدین وارد شوید</span>
+                        </a>
+                        <a href="{% provider_login_url 'google' %}" class="btn btn-secondary">
+                            <i class="fa-brands fa-google"></i>
+                            <span>با گوگل وارد شوید</span>
+
                         </a>
                     </div>
                     <!-- / register-->
