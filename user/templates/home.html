@@ -16,9 +16,9 @@
         <br/><br/>
 
         {% if user.is_authenticated %}
-            <h3>Welcome {{ user.name }} !!!</h3>
+            <h3>Welcome {{ user.username}} !!!</h3>
             <br/><br/>
-            <a href="{% url 'account_logout' %}" class="btn btn-danger">Logout</a>
+            <a href="{% url 'user_logout' %}" class="btn btn-danger">Logout</a>
         {% else %}
             <!-- LinkedIn button code starts here -->
             <a href="{% provider_login_url 'linkedin' %}" class="btn btn-secondary">
@@ -26,7 +26,7 @@
                 <span>Login with LinkedIn</span>
             </a>
             <a href="{% provider_login_url 'google' %}" class="btn btn-secondary">
-                <i class="fa-brands fa-google"></i>
+                <i class="fa fa-google"></i>
                 <span>Login with google</span>
 
             </a>

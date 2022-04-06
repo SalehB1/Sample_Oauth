@@ -6,10 +6,8 @@ from .managers import CustomUser
 
 
 class User(AbstractUser):
-    email = models.EmailField(unique=True)
-    phone_regex = RegexValidator(regex=r'^09\d{9}$',
-                                 message="شماره تلفن باید در قالب '09010944090' وارد شود.")
-    phone = models.CharField(validators=[phone_regex], max_length=11, unique=True)
+    email = models.EmailField(unique=True, null=True)
+    phone = models.CharField(max_length=50, unique=True, null=True)
     username_regex = RegexValidator(regex=r'^[\w.+-]*[a-zA-Z][\w.+-]*\Z',
                                     message="نام کاربری باید حداقل یک حرف داشته باشد و @ پذیرفته نمی شود")
     username = models.CharField(max_length=15, unique=True,
@@ -17,8 +15,8 @@ class User(AbstractUser):
                                     'هشدار نام کاربری باید بین 1 تا 15 حرف باشد و (فقط از حروف، اعداد و . / + / - / _ استفاده شود)'),
                                 validators=[username_regex],
                                 error_messages={'unique': _("کاربری با آن نام کاربری از قبل وجود دارد."), },
-                                )
-    is_verified = models.BooleanField(default=False, help_text='verfication status')
+                                null=True, blank=True)
+    is_verified = models.BooleanField(default=False, help_text='وضعیت تایید')
     if phone:
 
         USERNAME_FIELD = 'phone'
